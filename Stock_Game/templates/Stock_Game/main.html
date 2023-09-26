@@ -1,0 +1,260 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Home</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/features/">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+       <link rel="stylesheet" href="{% static 'Stock_Game/css/index.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <style>
+
+#homePage .heading {
+        font-size: 36px;
+        color: #44475b;
+        line-height: 25px;
+        letter-spacing: .2px;
+        font-weight: 500;
+    }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      body{
+	margin:0;
+	padding:0;
+	font-family:"arial",heletica,sans-serif;
+	font-size:12px;
+    background: #2980b9 url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
+	-webkit-animation: 10s linear 0s normal none infinite animate;
+	-moz-animation: 10s linear 0s normal none infinite animate;
+	-ms-animation: 10s linear 0s normal none infinite animate;
+	-o-animation: 10s linear 0s normal none infinite animate;
+	animation: 10s linear 0s normal none infinite animate;
+
+}
+
+@-webkit-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+
+@-moz-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+
+@-ms-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+
+@-o-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+
+@keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="features.css" rel="stylesheet">
+      <style>
+      .avatar {
+         vertical-align: middle;
+         width: 30px;
+         height: 30px;
+         border-radius: 50%;
+       }
+    </style>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
+
+    <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+  </head>
+  <body>
+  <nav class="navbar navbar-light" style="background-color: #377dc34d">
+        <div class="container-fluid" style="margin: 5px;">
+            <div style="padding-left: 20px;">
+                <a href="/main" style="color: white; text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px blue;" class="navbar-brand hh44Heading" style="padding-left: 10px; margin: 10px; font-size: 10px;">Stock Trainer</a>
+            </div>
+            <div style="padding-top: 5px">
+                <img style="margin-right: 5px" src="{% static 'Stock_Game/images/hi5.jpg' %}" alt="Avatar" class="avatar">
+                <a style="font-size:18px; color:white; padding-right:40px; padding-top: 5px; margin-top: 5px">Welcome, {{request.user}}</a>
+                <a href="/user/logout" style="font-size:18px; color:white; padding-right:40px; text-decoration: none;" onclick="logout()">logout</a>
+            </div>
+            <script>
+                    function logout(){
+                    alert('You have logged out successfully')
+                    }
+                </script>
+        </div>
+        </nav>
+  <main>
+	    <div class="container px-4 py-5" id="custom-cards">
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-shadow-1">
+			 <center> <h2>Your Teams</h2></center>
+			  <table class="table table-borderless border-primary">
+  <tbody>
+  {% for i in room %}
+    <tr style="font-size:20px;">
+      <th scope="row" >{{i.room.room_name}}</th>
+      <td><a class="btn btn-lg btn-primary" href="/portfolio/{{i.room.id}}/" style="padding:3px;font-size:15px;">View Detail</a></td>
+    </tr>
+   <center>
+  <form method="POST" action="/join/">
+                        {% csrf_token %}
+                        <div id="myModal" class="modal">
+
+                      <!-- Modal content -->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5>Hi {{request.user}} , </h5>
+                            <span class="close">&times;</span>
+                        </div>
+                        <div class="modal-body" style="text-align: left;">
+                            <span style="margin-top: 10px; font-size:20px">Kindly enter the code to join team</span>
+
+                            <input type = 'text' id = "quantity" name = "content"></b>
+                        </div>
+                        <div>
+                            <button id="myBtn1" class="btn btn-primary" style="color: #3F00FF;background-color: white;" type="submit">Join Team</button>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                      </div>
+
+                    </div>
+  </form>
+       </center>
+  {% endfor %}
+  </tbody>
+</table>
+              <div><center>
+                  <a class="btn btn-lg btn-primary" href="/createform/" style="padding:5px;margin:20px">Create Team</a>
+                  <a class="btn btn-lg btn-primary" id="myBtn" style="padding:5px;">Join Team</a>
+              </center>
+                  </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-shadow-1">
+			 <center> <h2>Blogs</h2></center>
+              <center>
+			  <table class="table table-borderless border-primary">
+  <tbody>
+  {% for i in subs %}
+    <tr style="font-size:20px;">
+      <center><th scope="row" >{{i.reg_consultant.consultant_name}}</th></center>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+              <div style="margin:25px;"> <a class="btn btn-lg btn-primary" href="{% url 'blog_list' %}" >View Blog</a></div>
+                <div style="margin:25px;">  <a class="btn btn-lg btn-primary" href="{% url 'subscribe' %}">Add Subscription</a></div>
+        <div style="margin:25px;"> <a href="{% url 'create-blog' %}"  class="btn btn-lg btn-primary">Create Blog</a></span></div>
+                  </center>
+      </div>
+        </div>
+          </div>
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-black text-shadow-1">
+			 <center> <h2>Ranking</h2>
+				 <br>
+				 <h2>{{rank}}</h2>
+			 </center>
+			  <h4>Fund available:{{avail}}</h4>
+			  <h4>Profit: {{profit}}</h4>
+			  <center>
+			  <div style="margin:25px;"> <a class="btn btn-lg btn-primary" href="/portfolio/1/" style="style="color: #3F00FF;background-color: white;padding:5px;margin:20px;border: 2px solid;padding: 10px;border-radius: 15px;"">View Portfolio</a></div>
+			  <div style="margin:25px;"> <a class="btn btn-lg btn-primary" href="/stocks/1/" >Add Stocks</a></div>
+				 </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+        </main>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <div id="chart_div"></div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ <script>
